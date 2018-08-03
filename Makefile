@@ -12,8 +12,9 @@
 
 NAME = fractol
 
-SRCS = fractol.c \
+SRCS = main.c \
 		codes.c \
+		add_fractols.c \
 		draw.c \
 
 LIB = -L libft/ -lft
@@ -27,7 +28,7 @@ libft:
 	make -C ./libft
 
 $(NAME): libft $(OBJ)
-	gcc $(CFLAGS) -g $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(LIB) -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit 
+	gcc $(CFLAGS) -g $(OBJ) -lpthread -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(LIB) -I ./
 
 clean:
 	/bin/rm -f $(OBJ)

@@ -46,6 +46,9 @@ typedef struct		s_fractol
 	double			y_max;
 }					t_fractol;
 
+int					type_fractol(t_fractol *f, char *type);
+int					type2_fractol(t_fractol *f, char *type);
+void				new_fractol(t_fractol *f);
 void				mlx_pixel_put_image(t_fractol *f, int x, int y, int color);
 int					key_codes(int n, t_fractol *f);
 int					julia_codes(int x, int y, t_fractol *f);
@@ -54,6 +57,10 @@ void				ft_threads(t_fractol *f);
 void				mandelbort(t_fractol *f, double x);
 void				julia(t_fractol *f, double x);
 void				z4(t_fractol *f, double x);
+void				z3(t_fractol *f, double x);
+void				f_sin(t_fractol *f, double x);
+void				f_cos(t_fractol *f, double x);
+void				flower(t_fractol *f, double x);
 void				*draw(void *v);
 
 #endif

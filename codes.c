@@ -35,13 +35,13 @@ int			key_codes(int n, t_fractol *f)
 	else if (n == 27 && f->inc >= 0)
 		(*f).inc /= 1.1;
 	else if (n == 124)
-		(*f).mvx -= 10;
-	else if (n == 123)
 		(*f).mvx += 10;
+	else if (n == 123)
+		(*f).mvx -= 10;
 	else if (n == 125)
-		(*f).mvy -= 10;
-	else if (n == 126)
 		(*f).mvy += 10;
+	else if (n == 126)
+		(*f).mvy -= 10;
 	else if (n == 15)
 		(*f).color = 1048576;
 	else if (n == 5)

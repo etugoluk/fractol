@@ -12,6 +12,28 @@
 
 #include "fractol.h"
 
+int				type2_fractol(t_fractol *f, char *type)
+{
+	if (!ft_strcmp(type, "Flower"))
+	{
+		f->type = 4;
+		f->color = 16;
+	}
+	else if (!ft_strcmp(type, "sin"))
+	{
+		f->type = 5;
+		f->color = 16;
+	}
+	else if (!ft_strcmp(type, "cos"))
+	{
+		f->type = 6;
+		f->color = 4096;
+	}
+	else
+		return (0);
+	return (1);
+}
+
 int				type_fractol(t_fractol *f, char *type)
 {
 	if (!ft_strcmp(type, "Mandelbrot"))
@@ -29,13 +51,13 @@ int				type_fractol(t_fractol *f, char *type)
 		f->type = 2;
 		f->color = 16;
 	}
-	else if (!ft_strcmp(type, "newton"))
+	else if (!ft_strcmp(type, "z3"))
 	{
 		f->type = 3;
-		f->color = 4096;
+		f->color = 1048576;
 	}
 	else
-		return (0);
+		return (type2_fractol(f, type));
 	return (1);
 }
 
@@ -87,7 +109,8 @@ int				main(int argc, char **argv)
 
 	if (argc != 2 || !type_fractol(&f, argv[1]))
 	{
-		ft_putendl("Usage: ./fractol [Mandelbrot]|[Julia]|[z4]");
+		ft_putstr("Usage: ./fractol [Mandelbrot]|[Julia]|[z3]|");
+		ft_putendl("[z4]|[Flower]|[sin]|[cos]");
 		return (0);
 	}
 	new_fractol(&f);
